@@ -1,1 +1,489 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="홍예주 개인 브랜딩 랜딩페이지">
+  <title>홍예주 | Personal Brand</title>
+
+  <style>
+    :root {
+      --charcoal: #252522;
+      --ivory: #f3f0e9;
+      --beige: #c7b69f;
+      --muted: #77756f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: var(--ivory);
+      color: var(--charcoal);
+      letter-spacing: -0.035em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      background: rgba(243,240,233,.9);
+      backdrop-filter: blur(15px);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding: 160px 9% 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        radial-gradient(
+          circle at 85% 40%,
+          rgba(199,182,159,.3),
+          transparent 35%
+        ),
+        var(--ivory);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #93836d;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 110px);
+      line-height: 1.12;
+      letter-spacing: -7px;
+      margin: 35px 0;
+    }
+
+    .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--charcoal);
+    }
+
+    .hero p {
+      color: var(--muted);
+      line-height: 2;
+      font-size: 17px;
+    }
+
+    .hero-bottom {
+      margin-top: 80px;
+      padding-top: 20px;
+      border-top: 1px solid #d5cec3;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* Common Sections */
+    section:not(.hero) {
+      padding: 120px 9%;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #93836d;
+      font-weight: bold;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: clamp(36px, 5vw, 65px);
+      line-height: 1.2;
+      letter-spacing: -4px;
+      margin-bottom: 55px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+    }
+
+    .about-lead {
+      font-size: 32px;
+      line-height: 1.6;
+    }
+
+    .about-copy {
+      color: var(--muted);
+      line-height: 2.2;
+      font-size: 15px;
+    }
+
+    /* Values */
+    .values {
+      background: var(--charcoal);
+      color: var(--ivory);
+    }
+
+    .value {
+      display: grid;
+      grid-template-columns: 70px 1fr 1fr;
+      gap: 20px;
+      padding: 35px 0;
+      border-top: 1px solid #55534d;
+      align-items: center;
+    }
+
+    .value h3 {
+      font-size: 26px;
+    }
+
+    .value p {
+      color: #c1beb6;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .number {
+      color: var(--beige);
+    }
+
+    /* Activities */
+    .activities {
+      background: #e9e4da;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .activity {
+      background: rgba(255,255,255,.5);
+      padding: 35px;
+      min-height: 220px;
+      transition: .3s;
+    }
+
+    .activity:hover {
+      transform: translateY(-6px);
+      background: white;
+    }
+
+    .activity span {
+      color: #93836d;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .activity h3 {
+      font-size: 27px;
+      margin: 45px 0 12px;
+    }
+
+    .activity p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    /* Closing */
+    .closing {
+      text-align: center;
+      padding: 150px 7% !important;
+    }
+
+    .closing h2 {
+      font-size: clamp(32px, 6vw, 70px);
+      line-height: 1.5;
+      letter-spacing: -4px;
+    }
+
+    .closing em {
+      color: #a28e72;
+      font-style: normal;
+    }
+
+    /* Footer */
+    footer {
+      padding: 35px 9%;
+      background: var(--charcoal);
+      color: var(--ivory);
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    /* Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media(max-width: 700px) {
+      .nav {
+        padding: 18px 6%;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 10px;
+      }
+
+      .hero {
+        padding: 140px 7% 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -4px;
+      }
+
+      section:not(.hero) {
+        padding: 85px 7%;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .value {
+        grid-template-columns: 35px 1fr;
+      }
+
+      .value p {
+        grid-column: 2;
+      }
+
+      .activity-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    @media(prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <a href="#home" class="logo">홍예주</a>
+
+    <nav class="nav-links">
+      <a href="#about">ABOUT</a>
+      <a href="#values">VALUES</a>
+      <a href="#activities">ACTIVITIES</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+
+    <section class="hero" id="home">
+      <div class="eyebrow">
+        PERSONAL BRAND / CREATIVE EXPLORER
+      </div>
+
+      <h1>
+        정해진 틀보다<br>
+        <span class="outline">새로운 가능성을</span><br>
+        선택합니다.
+      </h1>
+
+      <p>
+        배우고, 질문하고, 시도합니다.<br>
+        아이디어와 기술을 연결해 새로운 가능성을 탐색합니다.
+      </p>
+
+      <div class="hero-bottom">
+        HONG YE JU · PERSONAL BRAND
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-label">01 / ABOUT ME</div>
+
+      <div class="about-grid">
+        <h2 class="about-lead reveal">
+          익숙한 답을 따르기보다<br>
+          새로운 질문에서<br>
+          가능성을 발견합니다.
+        </h2>
+
+        <div class="about-copy reveal">
+          <p>안녕하세요. 홍예주입니다.</p>
+
+          <p>
+            저는 새로운 것을 배우고 성장하는 과정에
+            가치를 둡니다. 익숙한 방식에 머무르기보다
+            다른 관점으로 생각하고, 떠오른 아이디어를
+            실제 결과로 연결하는 일에 관심이 있습니다.
+          </p>
+
+          <p>
+            특히 AI와 디지털 기술을 탐색하며 콘텐츠,
+            교육, 브랜딩과 마케팅의 가능성을 넓혀가고 있습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values" id="values">
+      <div class="section-label">02 / MY VALUES</div>
+
+      <h2 class="section-title">
+        생각을 움직이는<br>세 가지 기준
+      </h2>
+
+      <article class="value reveal">
+        <span class="number">01</span>
+        <h3>배우며 성장하기</h3>
+        <p>새로운 지식과 기술을 배우고 다음 시도의 기반으로 삼습니다.</p>
+      </article>
+
+      <article class="value reveal">
+        <span class="number">02</span>
+        <h3>틀을 깨고 생각하기</h3>
+        <p>기존의 방식에 얽매이지 않고 새로운 관점으로 바라봅니다.</p>
+      </article>
+
+      <article class="value reveal">
+        <span class="number">03</span>
+        <h3>아이디어를 현실로</h3>
+        <p>창의적인 생각을 구체화하고 직접 실행합니다.</p>
+      </article>
+    </section>
+
+    <!-- Activities -->
+    <section class="activities" id="activities">
+      <div class="section-label">03 / WHAT I DO</div>
+
+      <h2 class="section-title">
+        관심을 탐색하고<br>가능성을 확장하는 분야
+      </h2>
+
+      <div class="activity-grid">
+
+        <article class="activity reveal">
+          <span>01 / TECHNOLOGY</span>
+          <h3>AI & Generative AI</h3>
+          <p>생성형 AI의 활용 방법을 탐색하고 창작과 업무에 적용합니다.</p>
+        </article>
+
+        <article class="activity reveal">
+          <span>02 / CONTENT</span>
+          <h3>Digital Contents</h3>
+          <p>아이디어를 바탕으로 디지털 콘텐츠를 기획하고 제작합니다.</p>
+        </article>
+
+        <article class="activity reveal">
+          <span>03 / LEARNING</span>
+          <h3>Education & Lecture</h3>
+          <p>새로운 기술과 지식을 이해하기 쉬운 방식으로 나누는 데 관심이 있습니다.</p>
+        </article>
+
+        <article class="activity reveal">
+          <span>04 / BRAND</span>
+          <h3>Branding & Marketing</h3>
+          <p>브랜드의 정체성을 발견하고 사람들에게 전달하는 방법을 고민합니다.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="closing">
+      <div class="section-label">04 / KEEP EXPLORING</div>
+
+      <h2 class="reveal">
+        가능성은 정해져 있지 않습니다.<br>
+        <em>배우고 시도하는 만큼</em><br>
+        새로운 길이 열립니다.
+      </h2>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <strong>홍예주</strong>
+    <span>CREATIVE · CHALLENGE · TECHNOLOGY</span>
+    <span>© 2026 HONG YE JU</span>
+  </footer>
+
+  <script>
+    // Scroll reveal animation
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".reveal").forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
+
